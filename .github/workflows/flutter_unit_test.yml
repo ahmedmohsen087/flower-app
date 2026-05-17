@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
       - name: Generate Mocks (build_runner)
-        run: dart run build_runner build --delete-conflicts
+        run: dart run build_runner build --delete-conflicting-outputs
       - name: Run tests
         run: flutter test --coverage
       - name: Check Coverage Percentage
