@@ -19,6 +19,8 @@ jobs:
           cache: true
       - name: Install dependencies
         run: flutter pub get
+      - name: Generate Mocks (build_runner)
+        run: dart run build_runner build --delete-conflicts
       - name: Run tests
         run: flutter test --coverage
       - name: Check Coverage Percentage
