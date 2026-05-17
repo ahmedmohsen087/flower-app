@@ -16,6 +16,7 @@ jobs:
         with:
           flutter-version: "3.x"
           channel: "stable"
+          cache: true
       - name: Install dependencies
         run: flutter pub get
       - name: Run tests
