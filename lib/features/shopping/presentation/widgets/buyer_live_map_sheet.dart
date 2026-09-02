@@ -74,7 +74,9 @@ class _BuyerLiveMapViewState extends State<_BuyerLiveMapView> {
     if (points.length < 2) return;
     final bounds = LatLngBounds.fromPoints(points);
     if (bounds.northEast.latitude == bounds.southWest.latitude &&
-        bounds.northEast.longitude == bounds.southWest.longitude) return;
+        bounds.northEast.longitude == bounds.southWest.longitude) {
+      return;
+    }
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
       try {

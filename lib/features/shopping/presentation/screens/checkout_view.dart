@@ -1,4 +1,5 @@
 import 'package:flower_app/config/di/di.dart';
+import 'package:flower_app/core/reusable_widgets/app_dialog.dart';
 import 'package:flower_app/core/reusable_widgets/app_snack_bar.dart';
 import 'package:flower_app/core/values/app_routes_name.dart';
 import 'package:flower_app/core/values/app_strings.dart';
@@ -57,12 +58,29 @@ class _CheckoutBodyState extends State<_CheckoutBody> {
     if (state.isGift && !(_formKey.currentState?.validate() ?? false)) {
       return;
     }
+    final isCurrentLocation = state.selectedAddress == null ||
+        (state.selectedAddress?.id?.isEmpty ?? true);
+    if (isCurrentLocation) {
+      AppDialog.show(
+        context: context,
+        title: AppStrings.confirmCurrentLocationDelivery,
+        description: AppStrings.confirmCurrentLocationDeliveryDesc,
+        confirmText: AppStrings.yes,
+        cancelText: AppStrings.no,
+        onConfirm: () => _executePlaceOrder(context, state),
+      );
+      return;
+    }
+    _executePlaceOrder(context, state);
+  }
+
+  void _executePlaceOrder(BuildContext context, CheckoutStates state) {
     context.read<CheckoutViewModel>().doEvent(
-      PlaceOrderEvent(
-        giftName: state.isGift ? _giftNameController.text.trim() : null,
-        giftPhone: state.isGift ? _giftPhoneController.text.trim() : null,
-      ),
-    );
+          PlaceOrderEvent(
+            giftName: state.isGift ? _giftNameController.text.trim() : null,
+            giftPhone: state.isGift ? _giftPhoneController.text.trim() : null,
+          ),
+        );
   }
 
   @override

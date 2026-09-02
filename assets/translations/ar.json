@@ -226,5 +226,7 @@
   "noNotificationsYet": "لا توجد إشعارات بعد",
   "searchingForDriver": "جاري البحث عن سائق...",
   "orderCanceled": "تم إلغاء الطلب",
-  "orderNumber": "رقم الطلب# {}"
+  "orderNumber": "رقم الطلب# {}",
+  "confirmCurrentLocationDelivery": "تأكيد عنوان التوصيل",
+  "confirmCurrentLocationDeliveryDesc": "هل تريد التوصيل إلى عنوانك الحالي؟"
 }

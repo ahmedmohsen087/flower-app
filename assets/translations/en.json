@@ -228,5 +228,7 @@
   "noNotificationsYet": "No notifications yet",
   "searchingForDriver": "Searching for a driver...",
   "orderCanceled": "Order canceled",
-  "orderNumber": "Order number# {}"
+  "orderNumber": "Order number# {}",
+  "confirmCurrentLocationDelivery": "Confirm Delivery Address",
+  "confirmCurrentLocationDeliveryDesc": "Do you want us to deliver to your current location?"
 }

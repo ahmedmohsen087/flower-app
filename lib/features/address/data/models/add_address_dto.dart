@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'add_address_dto.g.dart';
 
-@JsonSerializable(includeIfNull: false)
+@JsonSerializable(createFactory: false, includeIfNull: false)
 class AddAddressDto {
   @JsonKey(name: "street")
   String? street;
@@ -29,8 +29,17 @@ class AddAddressDto {
     this.id,
   });
 
-  factory AddAddressDto.fromJson(Map<String, dynamic> json) =>
-      _$AddAddressDtoFromJson(json);
+  factory AddAddressDto.fromJson(Map<String, dynamic> json) {
+    return AddAddressDto(
+      street: json['street'] as String?,
+      phone: json['phone'] as String?,
+      city: json['city'] as String?,
+      lat: (json['lat'] ?? json['latitude'])?.toString(),
+      long: (json['long'] ?? json['lng'] ?? json['longitude'])?.toString(),
+      username: json['username'] as String?,
+      id: (json['_id'] ?? json['id']) as String?,
+    );
+  }
 
   Map<String, dynamic> toJson() => _$AddAddressDtoToJson(this);
 }

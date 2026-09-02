@@ -250,4 +250,6 @@ abstract class AppStrings {
   static String get searchingForDriver => 'searchingForDriver'.tr();
   static String get orderCanceled => 'orderCanceled'.tr();
   static String orderNumberLabel(String number) => 'orderNumber'.tr(args: [number]);
+  static String get confirmCurrentLocationDelivery => 'confirmCurrentLocationDelivery'.tr();
+  static String get confirmCurrentLocationDeliveryDesc => 'confirmCurrentLocationDeliveryDesc'.tr();
 }
